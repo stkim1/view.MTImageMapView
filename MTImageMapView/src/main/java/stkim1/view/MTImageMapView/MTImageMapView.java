@@ -29,31 +29,34 @@ public class MTImageMapView extends AppCompatImageView
                             implements ViewTreeObserver.OnGlobalLayoutListener {
 
     // starts with an identity matrix for an inverse of the touch point matrix
-    private Matrix touchConvMat = new Matrix();
 
-    private Rect touchArea = new Rect();
-
-    private Paint pathColor = new Paint(Paint.ANTI_ALIAS_FLAG);
-
-    private boolean showPath = false;
-
-    private MTImageMapTouch touchedMapReceiver = null;
-
+    private Paint pathColor;
+    private boolean showPath;
+    private Matrix touchConvMat;
+    private Rect touchArea;
+    private MTImageMapTouch touchedMapReceiver;
     private final List<MTPolygon> polygons = new ArrayList<>();
+
+    // Instance initialization block
+    {
+        pathColor = new Paint();
+        pathColor.setStyle(Paint.Style.STROKE);
+        showPath = false;
+        touchConvMat = new Matrix();
+        touchArea = new Rect();
+        touchedMapReceiver = null;
+    }
 
     public MTImageMapView(Context context) {
         super(context);
-        initPathColor();
     }
 
     public MTImageMapView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        initPathColor();
     }
 
     public MTImageMapView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        initPathColor();
     }
 
     @Override
@@ -178,10 +181,6 @@ public class MTImageMapView extends AppCompatImageView
 
         this.touchedMapReceiver.onImageMapClicked(tEvent, cPoint, tPolygons);
         return true;
-    }
-
-    private void initPathColor() {
-        this.pathColor.setColor(Color.BLUE);
     }
 
     public void setPathColor(@NonNull Paint pColor) {
