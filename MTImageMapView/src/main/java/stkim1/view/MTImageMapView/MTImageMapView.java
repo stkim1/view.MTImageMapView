@@ -33,6 +33,7 @@ public class MTImageMapView extends AppCompatImageView
     private Paint pathColor;
     private boolean showPath;
     private Matrix touchConvMat;
+    private Matrix pathMatrix;
     private Rect touchArea;
     private MTImageMapTouch touchedMapReceiver;
     private final List<MTPolygon> polygons = new ArrayList<>();
@@ -40,9 +41,11 @@ public class MTImageMapView extends AppCompatImageView
     // Instance initialization block
     {
         pathColor = new Paint();
+        pathColor.setColor(Color.BLUE);
         pathColor.setStyle(Paint.Style.STROKE);
         showPath = false;
         touchConvMat = new Matrix();
+        pathMatrix = new Matrix();
         touchArea = new Rect();
         touchedMapReceiver = null;
     }
@@ -84,30 +87,35 @@ public class MTImageMapView extends AppCompatImageView
         int bottom = this.getPaddingBottom();
         int right = this.getPaddingRight();
         int left = this.getPaddingLeft();
-
         this.touchArea = new Rect(left, top, width - right, height - bottom);
 
-        // density factor scale
+        // convert px -> dp by density factor / dpi
         DisplayMetrics metrics = Resources.getSystem().getDisplayMetrics();
         float scaleX = DisplayMetrics.DENSITY_DEFAULT / metrics.xdpi;
         float scaleY = DisplayMetrics.DENSITY_DEFAULT / metrics.ydpi;
-
         // If the image matrix cannot be inverted, its inversion will be saved anyway
         // as it will be an identity matrix.
         Matrix invImgMat = new Matrix();
         this.getImageMatrix().invert(invImgMat);
         invImgMat.postScale(scaleX, scaleY);
-
         this.touchConvMat = invImgMat;
+
+        // covert dp -> px by dpi / density factor
+        float pScaleX = metrics.xdpi / DisplayMetrics.DENSITY_DEFAULT;
+        float pScaleY = metrics.ydpi / DisplayMetrics.DENSITY_DEFAULT;
+        Matrix pathMat = new Matrix(this.getImageMatrix());
+        pathMat.preScale(pScaleX, pScaleY);
+        this.pathMatrix = pathMat;
     }
 
     @Override
     protected void onDraw (Canvas canvas) {
         super.onDraw(canvas);
 
-        if (this.showPath) {
+        if (this.showPath && !this.polygons.isEmpty()) {
             this.polygons.forEach(polygon -> {
                 Path path = polygon.getVerticesPath();
+                path.transform(this.pathMatrix);
                 canvas.drawPath(path, this.pathColor);
             });
         }
