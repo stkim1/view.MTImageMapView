@@ -7,7 +7,7 @@ Extremely useful for handling touches on, for example, Europe map, or an eye of 
 
 ## Screen Shots  
 
-![screenshot](https://raw.githubusercontent.com/stkim1/view.MTImageMapView/main/screenshot.jpg)
+![screenshot](https://raw.githubusercontent.com/stkim1/view.MTImageMapView/main/sample/screenshot.jpg)
 
 ## Features  
 
@@ -24,14 +24,14 @@ Extremely useful for handling touches on, for example, Europe map, or an eye of 
 
 ## Implementation  
 1. Use tools like [Gimp](http://www.gimp.org/) and generate a image map.  
-2. Copy only coordinate `[x,y]` pairs of the map (e.g. "[123,242],[452,242],[142,322]").  
+2. Copy only coordinate `[x,y]` pairs of the map (e.g. `[[123,242],[452,242],[142,322]]`).  
 3. Put the strings in JSON.  
 4. Instantiate ImageMapView and implement `MTImageMapTouch` interface.  
 5. pass the array to the map view.  
 
 
 ```kotlin
-val pString = assets.open("us_states.json")
+val jsonMaps = assets.open("us_states.json")
                 .bufferedReader()
                 .use { it.readText() }
 
@@ -39,9 +39,9 @@ val moshi = Moshi.Builder()
                 .add(PolygonAdapter())
                 .build()
 
-val pList: List<MTPolygon> = moshi
+val mapList: List<MTPolygon> = moshi
                 .adapter<List<MTPolygon>>()
-                .fromJson(pString) as List<MTPolygon>
+                .fromJson(jsonMaps) as List<MTPolygon>
 
 val usState : Drawable? = AppCompatResources
                 .getDrawable(applicationContext, R.drawable.us_states)
@@ -50,7 +50,7 @@ val mapView : MTImageMapView = findViewById(R.id.imageMapView)
 mapView.setImageDrawable(usState)
 mapView.setTouchedMapReceiver(this)
 mapView.setShowPath(true)
-mapView.setPolygons(pList)
+mapView.setPolygons(mapList)
 ```  
 
 ### LIMITS  
