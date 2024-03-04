@@ -31,7 +31,7 @@ public class MTImageMapView extends AppCompatImageView
     // starts with an identity matrix for an inverse of the touch point matrix
 
     private Paint pathColor;
-    private boolean showPath;
+    private boolean pathVisible;
     private Matrix touchConvMat;
     private Matrix pathMatrix;
     private Rect touchArea;
@@ -43,7 +43,7 @@ public class MTImageMapView extends AppCompatImageView
         pathColor = new Paint();
         pathColor.setColor(Color.BLUE);
         pathColor.setStyle(Paint.Style.STROKE);
-        showPath = false;
+        pathVisible = false;
         touchConvMat = new Matrix();
         pathMatrix = new Matrix();
         touchArea = new Rect();
@@ -112,7 +112,7 @@ public class MTImageMapView extends AppCompatImageView
     protected void onDraw (Canvas canvas) {
         super.onDraw(canvas);
 
-        if (this.showPath && !this.polygons.isEmpty()) {
+        if (this.pathVisible && !this.polygons.isEmpty()) {
             this.polygons.forEach(polygon -> {
                 Path path = polygon.getVerticesPath();
                 path.transform(this.pathMatrix);
@@ -191,12 +191,21 @@ public class MTImageMapView extends AppCompatImageView
         return true;
     }
 
+    @NonNull
+    public Paint getPathColor() {
+        return this.pathColor;
+    }
+
     public void setPathColor(@NonNull Paint pColor) {
         this.pathColor = pColor;
     }
 
-    public void setShowPath(boolean pShow) {
-        this.showPath = pShow;
+    public boolean isPathVisible() {
+        return this.pathVisible;
+    }
+
+    public void setPathVisible(boolean pShow) {
+        this.pathVisible = pShow;
     }
 
     public void setTouchedMapReceiver(MTImageMapTouch tReceiver) {
@@ -211,7 +220,7 @@ public class MTImageMapView extends AppCompatImageView
 
         this.polygons.addAll(pList);
 
-        if (this.showPath) {
+        if (this.pathVisible) {
             invalidate();
         }
     }
