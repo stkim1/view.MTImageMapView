@@ -40,8 +40,8 @@ android {
 publishing {
     publications {
         bar(MavenPublication) {
-            groupId "stkim1.view"
-            artifactId "mtimagemapview"
+            groupId "io.github.stkim1"
+            artifactId "view-mtimagemapview"
             version "0.1"
             artifact("$buildDir/outputs/aar/${project.name}-debug-${android.defaultConfig.versionName}.aar")
         }
