@@ -1,7 +1,7 @@
 # MTImageMapView  
-## 🏗️👷‍♂️ 2013 iOS MTImageMapView Android port 🏡
+## 🏗️👷‍♂️ 2013 [iOS MTImageMapView](https://github.com/stkim1/MTImageMapView) Android port 🏡
 
-An image view to select a __complex polygon__ (__`"map"`__ henceforth) out of many. 
+An image view to select __a complex polygon__ (`map` henceforth) out of many. 
 Extremely useful for handling touches on, for example, Europe map, or an eye of owl.  
 
 ## Screen Shots  
@@ -19,18 +19,18 @@ Extremely useful for handling touches on, for example, Europe map, or an eye of 
 
 ## Support  
 
-- Android API from 24 and up due to Java 8  
+- From Android API 24  
 
-## Library Support  
+## Library Setup  
 
 - libs.versions.toml  
 
 ```toml
 [versions]
-stkim1ViewMTImageMapView = "0.1"
+MTImageMapView = "0.1"
 
 [libraries]
-stkim1-view-mtimagemapview = {group = "io.github.stkim1", name = "view-mtimagemapview", version.ref = "stkim1ViewMTImageMapView"}
+stkim1-view-mtimagemapview = {group = "io.github.stkim1", name = "view-mtimagemapview", version.ref = "MTImageMapView"}
 ```
 
 - build.gradle.kts
@@ -54,7 +54,8 @@ dependencies {
         "id": {
             "name": "Alaska",
             "code": "AZ",
-            "dial": 907
+            "dial": 907,
+            "desc": "Alaska State Polygon Map"
         },
         "vertices": [[58,294],[56,293],[55,292],[54,292],[51,294]]
     },
@@ -64,9 +65,9 @@ dependencies {
     }
 ]
 ```
-4. For `id` field, you can use good-old string, object, or totally eliminate it if you want to. You can mix up with other fields such as `description`. Nonetheless, the __`vertices`__ field has to be there, and it should maintain coordinations in the aforementioned array format.  
-5. Instantiate `MTImageMapView` and implement `MTImageMapTouch` interface.  
-6. Pass the array to the instance of `MTImageMapView`.  
+4. For the `id` field, you can use good-old string, object, or totally eliminate it if you want to. You can mix up with other fields such as `description`.  
+5. Nonetheless, the __`vertices`__ field has to be there, and it should maintain coordinations in the aforementioned array format in #2. The field and format will be enforced in the future versions.  
+6. Instantiate `MTImageMapView` and implement `MTImageMapTouch` interface. Then pass the map to the instance of `MTImageMapView`.  
 ```kotlin
 val jsonMaps = assets.open("us_states.json")
                 .bufferedReader()
