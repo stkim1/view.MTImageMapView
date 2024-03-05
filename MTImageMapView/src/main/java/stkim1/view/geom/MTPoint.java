@@ -5,21 +5,45 @@ import androidx.annotation.NonNull;
 import java.security.InvalidParameterException;
 import java.util.List;
 
+/**
+ * MTPoint is to contain a single (x,y) coordinate of a polygon map.
+ *
+ * @author      stkim1
+ * @version     %I%, %G%
+ * @since       0.1
+ */
 public class MTPoint {
     public final double x, y;
 
+    /**
+     * Build a zero-point object to (0, 0).
+     */
     public MTPoint() {
         super();
         this.x = 0.0;
         this.y = 0.0;
     }
 
+    /**
+     * Returns a point object to (x, y).
+     *
+     * @param  x  x part of a coordinate
+     * @param  y  y part of a coordinate
+     */
     public MTPoint(double x, double y) {
         super();
         this.x = x;
         this.y = y;
     }
 
+    /**
+     * Returns a point object to (x, y).
+     * The coordinate argument must be a <code>float[]</code> array in the length of two (2).
+     *
+     * @param  point a coordinate of (x, y) pair in <code>float[]</code> array.
+     * @throws IllegalArgumentException if the argument is <code>null</code>.
+     * @throws InvalidParameterException If the argument array length is not <code>two (2)</code>.
+     */
     public MTPoint(@NonNull float[] point) {
         super();
         if (point.length != 2) {
@@ -29,6 +53,14 @@ public class MTPoint {
         this.y = point[1];
     }
 
+    /**
+     * Returns a point object to (x, y).
+     * The coordinate argument must be a <code>double[]</code> array in the length of two (2).
+     *
+     * @param point a coordinate of (x, y) pair in <code>double[]</code> array.
+     * @throws IllegalArgumentException if the argument is <code>null</code>.
+     * @throws InvalidParameterException If the argument array length is not <code>two (2)</code>.
+     */
     public MTPoint(@NonNull double[] point) {
         super();
         if (point.length != 2) {
@@ -38,6 +70,14 @@ public class MTPoint {
         this.y = point[1];
     }
 
+    /**
+     * Returns a point object to (x, y).
+     * The coordinate argument must be a <code>List<Double></code> array in the size of two (2).
+     *
+     * @param  point a coordinate of (x, y) pair in <code>List<Double></code>.
+     * @throws IllegalArgumentException if the argument is <code>null</code>.
+     * @throws InvalidParameterException If the argument list size is not <code>two (2)</code>.
+     */
     public MTPoint(@NonNull List<Double> point) {
         super();
         if (point.size() != 2) {
@@ -61,7 +101,7 @@ public class MTPoint {
     // Return  : >0 for the point is at the left of the line through P0 and P1
     //           =0 for the point is on the line
     //           <0 for the point is at the right of the line
-    public int isLeft( MTPoint P0, MTPoint P1) {
+    int isLeft( MTPoint P0, MTPoint P1) {
         return (int)( (P1.x - P0.x) * (this.y - P0.y) - (this.x -  P0.x) * (P1.y - P0.y) );
     }
 }

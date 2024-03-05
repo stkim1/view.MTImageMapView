@@ -4,10 +4,16 @@ import androidx.annotation.NonNull;
 
 import java.util.List;
 
-// MTPolygonBoundingBox is a utility class of MTPolygon.
-// It does not thoroughly check the sanity of input values.
-// Thus, when you are to utilize outside of MTPolygon,
-// be aware of its uninitialized min and max values.
+/**
+ * MTPolygonBoundingBox is a utility class of MTPolygon.
+It does not thoroughly check the sanity of input values.
+ * Thus, when you are to utilize outside of MTPolygon,
+ * be aware of its uninitialized min and max values.
+ *
+ * @author      stkim1
+ * @version     %I%, %G%
+ * @since       0.1
+ */
 class MTPolygonBoundingBox {
 
     MTPoint minVertex, maxVertex;

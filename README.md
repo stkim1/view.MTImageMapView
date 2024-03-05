@@ -66,7 +66,7 @@ dependencies {
 ]
 ```
 4. For the `id` field, you can use good-old string, object, or totally eliminate it if you want to. You can mix up with other fields such as `description`.  
-5. Nonetheless, the __`vertices`__ field has to be there, and it should maintain coordinations in the aforementioned array format in #2. The field and format will be enforced in the future versions.  
+5. Nonetheless, the __`vertices`__ field has to be there, and it should maintain coordinates in the aforementioned array format in #2. The field and format will be enforced in the future versions.  
 6. Instantiate `MTImageMapView` and implement `MTImageMapTouch` interface. Then pass the map to the instance of `MTImageMapView`.  
 ```kotlin
 val jsonMaps = assets.open("us_states.json")
@@ -100,12 +100,16 @@ val mapView : MTImageMapView = findViewById(R.id.imageMapView)
 
 - [MTImageMapView Example](https://github.com/stkim1/MTImageMapViewExample)
 
-### Limits  
+### Limits & Cautions 
 
-- Delegate only receives the index of a map  
-- Coordinates must be provided in pairs  
-- At least 3 pairs of coordinates must be presented  
-- No "rect", "circle" type map is supported. "Polygon" only at this time being  
+- ✨ The coordinates of a polygon map must be provided in an array of `[x, y]` pairs in `vertices` field. For the compatibility of upcoming updates, this format will be enforced. 🌟 
+- When you're to debug, it is convinient to split the screen space where touch event takes place from the logical space of `dp` unit where you draw polygon maps on an image with graphic tools. It is necessary due to the situation in which every Android device has different screen dpi.  
+- `MTImageMapTouch` interface delivers 
+  1. Android native touch event in the screen pixel space,
+  2. the point of touch in logical space, and 
+  3. the polygon map selected.  
+- At least 3 pairs of coordinates must present to form a polygon map.  
+- No "rect", "circle" type map is supported. "__polygon__" only at this time being.  
 
 ## Credits  
 - Dan Sunday's Fast Winding Number Algorithm
