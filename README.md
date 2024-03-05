@@ -27,10 +27,10 @@ Extremely useful for handling touches on, for example, Europe map, or an eye of 
 
 ```toml
 [versions]
-MTImageMapView = "0.1"
+stkim1MTImageMapView = "0.1"
 
 [libraries]
-stkim1-view-mtimagemapview = {group = "io.github.stkim1", name = "view-mtimagemapview", version.ref = "MTImageMapView"}
+stkim1-view-mtimagemapview = {group = "io.github.stkim1", name = "view-mtimagemapview", version.ref = "stkim1MTImageMapView"}
 ```
 
 - build.gradle.kts
