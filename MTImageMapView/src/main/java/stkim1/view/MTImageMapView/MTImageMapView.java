@@ -25,10 +25,15 @@ import java.util.stream.Collectors;
 import stkim1.view.geom.MTPoint;
 import stkim1.view.geom.MTPolygon;
 
+/**
+ * MTImageMapView lets a user to select a polygon map on an image.
+ *
+ * @author      stkim1
+ * @version     %I%, %G%
+ * @since       0.1
+ */
 public class MTImageMapView extends AppCompatImageView
                             implements ViewTreeObserver.OnGlobalLayoutListener {
-
-    // starts with an identity matrix for an inverse of the touch point matrix
 
     private Paint pathColor;
     private boolean pathVisible;
@@ -44,8 +49,8 @@ public class MTImageMapView extends AppCompatImageView
         pathColor.setColor(Color.BLUE);
         pathColor.setStyle(Paint.Style.STROKE);
         pathVisible = false;
-        touchConvMat = new Matrix();
-        pathMatrix = new Matrix();
+        touchConvMat = new Matrix(); // starts with an identity matrix
+        pathMatrix = new Matrix();   // starts with an identity matrix
         touchArea = new Rect();
         touchedMapReceiver = null;
     }
@@ -76,8 +81,11 @@ public class MTImageMapView extends AppCompatImageView
         super.onDetachedFromWindow();
     }
 
-    // once this view is measured, layered, and drawn, we can get the actual drawable matrix,
-    // which would guide us to map a touch point on the drawable.
+    /**
+     * Once this <code>MTImageMapView</code> is measured, layered, and drawn, we can get the actual
+     * drawable matrix, which would guide us to map a touch point on the drawable and help us to
+     * draw <code>vertices</code> of <code>MTPolygon</code> maps.
+     */
     @Override
     public void onGlobalLayout () {
         // drawable frame
@@ -121,12 +129,6 @@ public class MTImageMapView extends AppCompatImageView
         }
     }
 
-    // https://developer.android.com/reference/android/view/View#performClick()
-    // Call this view's OnClickListener, if it is defined. Performs all normal actions associated
-    // with clicking: reporting accessibility event, playing a sound, etc.
-    // return : True there was an assigned OnClickListener that was called,
-    //          false otherwise is returned.
-
     @Override
     public boolean performClick () {
         super.performClick();
@@ -141,6 +143,7 @@ public class MTImageMapView extends AppCompatImageView
         switch (tEvent.getAction() & MotionEvent.ACTION_MASK) {
             case MotionEvent.ACTION_POINTER_UP:
             case MotionEvent.ACTION_UP: {
+                // https://developer.android.com/reference/android/view/View#performClick()
                 this.performClick();
                 break;
             }
@@ -191,27 +194,63 @@ public class MTImageMapView extends AppCompatImageView
         return true;
     }
 
+    /**
+     * Get the color and style of <code>vertices</code> line for debugging purpose.
+     *
+     * @return non-null <code>vertices</code> line color in <code>android.graphics.Paint</code>.
+     */
     @NonNull
     public Paint getPathColor() {
         return this.pathColor;
     }
 
+    /**
+     * Set the color and style of <code>vertices</code> line for debugging purpose.
+     *
+     * @param pColor non-null <code>vertices</code> line color in <code>android.graphics.Paint</code>.
+     * @throws NullPointerException if <code>pColor</code> is <code>null</code>.
+     */
     public void setPathColor(@NonNull Paint pColor) {
         this.pathColor = pColor;
     }
 
+    /**
+     * Get the visibility of <code>vertices</code> line for debugging purpose.
+     *
+     * @return <code>true</code> if <code>vertices</code> line path is set to be visible,
+     *      <code>false</code> otherwise.
+     */
     public boolean isPathVisible() {
         return this.pathVisible;
     }
 
+    /**
+     * Set the visibility of <code>vertices</code> line for debugging purpose.
+     *
+     * @param pShow <code>true</code> if <code>vertices</code> line path is visible,
+     *      <code>false</code> otherwise.
+     */
     public void setPathVisible(boolean pShow) {
         this.pathVisible = pShow;
     }
 
+    /**
+     * Set the instance of <code>MTImageMapTouch</code> interface.
+     *
+     * @param tReceiver to receive touch map event. Pass <code>null</code> to set it free.
+     * @see MTImageMapTouch
+     */
     public void setTouchedMapReceiver(MTImageMapTouch tReceiver) {
         this.touchedMapReceiver = tReceiver;
     }
 
+    /**
+     * Set A list of <code>MTPolygon</code>. Everytime you pass a <code>List<{@link MTPolygon}></code>,
+     * the existing list will be wiped clean, and the new list is set to be used.
+     *
+     * @param pList to set a <code>List<{@link MTPolygon}></code> of for the image of this view.
+     *      <code>null</code> if you want to empty the list.
+     */
     public void setPolygons(List<MTPolygon> pList) {
         this.polygons.clear();
         if (pList == null || pList.isEmpty()) {

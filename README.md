@@ -23,20 +23,10 @@ Extremely useful for handling touches on, for example, Europe map, or an eye of 
 
 ## Library Setup  
 
-- libs.versions.toml  
-
-```toml
-[versions]
-stkim1MTImageMapView = "0.1"
-
-[libraries]
-stkim1-view-mtimagemapview = {group = "io.github.stkim1", name = "view-mtimagemapview", version.ref = "stkim1MTImageMapView"}
-```
-
 - build.gradle.kts
 ```
 dependencies {
-   implementation(libs.stkim1.view.mtimagemapview)
+   implementation("io.github.stkim1:view-mtimagemapview:0.1")
 }
 ```
 

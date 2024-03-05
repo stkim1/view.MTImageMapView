@@ -6,7 +6,8 @@ import java.security.InvalidParameterException;
 import java.util.List;
 
 /**
- * MTPoint is to contain a single (x,y) coordinate of a polygon map.
+ * MTPoint contains a single (x,y) coordinate of 1) a polygon map
+ * or 2) a touch point in the logical space of <code>dp</code> unit.
  *
  * @author      stkim1
  * @version     %I%, %G%
@@ -16,7 +17,7 @@ public class MTPoint {
     public final double x, y;
 
     /**
-     * Build a zero-point object to (0, 0).
+     * Build a <code>MTPoint</code> object to (0, 0).
      */
     public MTPoint() {
         super();
@@ -25,7 +26,7 @@ public class MTPoint {
     }
 
     /**
-     * Returns a point object to (x, y).
+     * Construct a <code>MTPoint</code> object to (x, y).
      *
      * @param  x  x part of a coordinate
      * @param  y  y part of a coordinate
@@ -37,7 +38,7 @@ public class MTPoint {
     }
 
     /**
-     * Returns a point object to (x, y).
+     * Returns a <code>MTPoint</code> object to (x, y).
      * The coordinate argument must be a <code>float[]</code> array in the length of two (2).
      *
      * @param  point a coordinate of (x, y) pair in <code>float[]</code> array.
@@ -54,7 +55,7 @@ public class MTPoint {
     }
 
     /**
-     * Returns a point object to (x, y).
+     * Returns a <code>MTPoint</code> object to (x, y).
      * The coordinate argument must be a <code>double[]</code> array in the length of two (2).
      *
      * @param point a coordinate of (x, y) pair in <code>double[]</code> array.
@@ -71,10 +72,10 @@ public class MTPoint {
     }
 
     /**
-     * Returns a point object to (x, y).
+     * Returns a <code>MTPoint</code> object to (x, y).
      * The coordinate argument must be a <code>List<Double></code> array in the size of two (2).
      *
-     * @param  point a coordinate of (x, y) pair in <code>List<Double></code>.
+     * @param  point a coordinate of (x, y) pair in <code>List<{@link Double}></code>.
      * @throws IllegalArgumentException if the argument is <code>null</code>.
      * @throws InvalidParameterException If the argument list size is not <code>two (2)</code>.
      */
