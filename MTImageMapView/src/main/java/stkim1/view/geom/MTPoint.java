@@ -102,7 +102,7 @@ public class MTPoint {
     // Return  : >0 for the point is at the left of the line through P0 and P1
     //           =0 for the point is on the line
     //           <0 for the point is at the right of the line
-    int isLeft( MTPoint P0, MTPoint P1) {
+    int isLeft(@NonNull MTPoint P0 ,@NonNull MTPoint P1) {
         return (int)( (P1.x - P0.x) * (this.y - P0.y) - (this.x -  P0.x) * (P1.y - P0.y) );
     }
 }
