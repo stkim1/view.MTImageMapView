@@ -93,8 +93,8 @@ val mapView : MTImageMapView = findViewById(R.id.imageMapView)
 
 ### Sample Image and Maps  
 
-- A [US map](https://github.com/stkim1/view.MTImageMapView/blob/main/sample/US_States.gif) in size of 600 x 383 px.  
-- The [polygons](https://github.com/stkim1/view.MTImageMapView/blob/main/sample/assets/us_states.json) (maps) of the US states in JSON.  
+- A [US states image](https://github.com/stkim1/view.MTImageMapView/blob/main/sample/US_States.gif) in size of 600 x 383 px.  
+- The [polygon maps](https://github.com/stkim1/view.MTImageMapView/blob/main/sample/assets/us_states.json) of the US states in JSON.  
 
 ### Example App  
 
@@ -108,10 +108,31 @@ val mapView : MTImageMapView = findViewById(R.id.imageMapView)
 - No "rect", "circle" type map is supported. "Polygon" only at this time being  
 
 ## Credits  
+- Dan Sunday's Fast Winding Number Algorithm
+```txt
+Copyright 2000 softSurfer, 2012 Dan Sunday
+This code may be freely used and modified for any purpose
+providing that this copyright notice is included with it.
+SoftSurfer makes no warranty for this code, and cannot be held
+liable for any real or imagined damage resulting from its use.
+Users of this code must verify correctness for their application.
+
+isLeft(): tests if the object's point (hence the point) is Left|On|Right of an infinite line.
+Input   : the point, P0, and P1
+Return  : >0 for the point is at the left of the line through P0 and P1
+          =0 for the point is on the line
+          <0 for the point is at the right of the line
+
+fastWindingNumber(): winding number test for a point in a polygon
+Input   : polygon = vertex points of a polygon V[n+1] with V[n]=V[0]
+             point = a point
+Return  : wn = the winding number (=0 only when the point is outside)
+
+```
+
 - US states image and all coordinates are credited to [Illinois Center for Information Technology and Web Accessibility](http://html.cita.illinois.edu/text/map/map-example.php)  
 
 ## Version
 
 _VER_ : 0.1  
-
 _UPDATED_ : Mar. 1, 2024
