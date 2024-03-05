@@ -135,6 +135,9 @@ public class MTImageMapView extends AppCompatImageView
         return true;
     }
 
+    /**
+     * @see MTImageMapTouch
+     */
     @Override
     public boolean onTouchEvent (MotionEvent tEvent) {
 
