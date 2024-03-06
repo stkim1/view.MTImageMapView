@@ -23,9 +23,9 @@ Extremely useful for handling touches on, for example, Europe map, or an eye of 
 
 ## Library Setup  
 - Download [`MTImageMapView-0.1-rc3.aar`](https://raw.githubusercontent.com/stkim1/view.MTImageMapView/main/dist/MTImageMapView-0.1-rc3.aar)  
-- Place it in `libs` folder  
+- Place it in the `libs` folder  
 ![screenshot](https://raw.githubusercontent.com/stkim1/view.MTImageMapView/main/doc/lib_install.png)  
-- edit `build.gradle.kts`  
+- Edit `build.gradle.kts`  
 ```kotlin
 dependencies {
     ...
@@ -145,4 +145,4 @@ Return  : wn = the winding number (=0 only when the point is outside)
 ## Version
 
 _VER_ : 0.1  
-_UPDATED_ : Mar. 1, 2024
+_UPDATED_ : Mar. 6, 2024
