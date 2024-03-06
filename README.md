@@ -94,7 +94,7 @@ val mapView : MTImageMapView = findViewById(R.id.imageMapView)
 
 ### Javadoc  
 
-- [v0.1-rc3 Javadoc](https://html-preview.github.io/?https://github.com/stkim1/view.MTImageMapView/blob/main/doc/index.html)
+- [v0.1-rc3 Javadoc](https://html-preview.github.io/?url=https://github.com/stkim1/view.MTImageMapView/blob/main/doc/index.html)
 
 ### Sample Image and Maps  
 
