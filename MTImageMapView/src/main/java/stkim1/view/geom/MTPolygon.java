@@ -72,6 +72,8 @@ public class MTPolygon {
      * <code>String</code>, <code>Object</code>, and/or <code>null</code> if you want.
      * Polygon id is not enforced as it is an utility, i.e. you can implement an id only if you need
      * to identify or index polygons.
+     *
+     * @param pid a nullable <code>Object</code> as the id of a polygon.
      */
     public void setPolygonId(Object pid) {
             this.polygonId = pid;

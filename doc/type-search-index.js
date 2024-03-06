@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"stkim1.view.MTImageMapView","l":"MTImageMapTouch"},{"p":"stkim1.view.MTImageMapView","l":"MTImageMapView"},{"p":"stkim1.view.geom","l":"MTPoint"},{"p":"stkim1.view.geom","l":"MTPolygon"}];updateSearchResults();

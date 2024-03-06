@@ -19,7 +19,8 @@ import stkim1.view.geom.MTPolygon;
 public interface MTImageMapTouch {
     /**
      * Passes a touch event on <code>MTImageMapView</code>, a point in the logical space of
-     * <code>dp</code> unit, and a <code>List<{@link MTPolygon}></code> of selected polygons.
+     * <code>dp</code> unit, and a <code>List{@literal <}{@link MTPolygon}{@literal >}</code> of
+     * selected polygons.
      *
      * @param event unaltered <code>android.view.MotionEvent</code> from
      *      <code>android.view.View</code>.<p>
@@ -30,7 +31,7 @@ public interface MTImageMapTouch {
      *      delivered. Otherwise, a <code>MTPoint</code> object in the logical space of
      *      <code>dp</code> unit will come.<p>
      *
-     * @param polygons a <code>List<{@link MTPolygon}></code> of selected polygons.
+     * @param polygons a <code>List{@literal <}{@link MTPolygon}{@literal >}</code> of selected polygons.
      *      If (1) no polygon is selected, (2) <code>MTImageMapView</code> does not contains a polygon
      *      map, (3) the touch event happens out of the valid view area, the polygon list will be
      *      an empty list.

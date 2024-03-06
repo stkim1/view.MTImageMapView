@@ -24,22 +24,22 @@ Extremely useful for handling touches on, for example, Europe map, or an eye of 
 ## Library Setup  
 - Download [`MTImageMapView-0.1-rc3.aar`](https://raw.githubusercontent.com/stkim1/view.MTImageMapView/main/dist/MTImageMapView-0.1-rc3.aar)  
 - Place it in `libs` folder  
-![screenshot](https://raw.githubusercontent.com/stkim1/view.MTImageMapView/main/doc/lib_install.png)
+![screenshot](https://raw.githubusercontent.com/stkim1/view.MTImageMapView/main/doc/lib_install.png)  
 - edit `build.gradle.kts`  
-```
+```kotlin
 dependencies {
     ...
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.aar", "*.jar"))))
 }
-```
+```  
 - or `build.gradle`  
 ```groovy
 dependencies {
     ...
     implementation(fileTree(dir: 'libs', include: ['.aar', '.jar']))
 }
-```
-
+```  
+- `clean` and `build`  
 
 ## Implementation with JSON  
 1. Use tools like [Gimp](http://www.gimp.org/) and generate a image map.  
@@ -91,6 +91,10 @@ val mapView : MTImageMapView = findViewById(R.id.imageMapView)
     mapView.setShowPath(true)
     mapView.setPolygons(mapList)
 ```  
+
+### Javadoc  
+
+- [v0.1-rc3 Javadoc](https://html-preview.github.io/?https://github.com/stkim1/view.MTImageMapView/blob/main/doc/index.html)
 
 ### Sample Image and Maps  
 

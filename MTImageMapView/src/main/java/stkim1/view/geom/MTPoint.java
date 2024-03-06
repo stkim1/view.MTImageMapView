@@ -10,7 +10,7 @@ import java.util.List;
  * or 2) a touch point in the logical space of <code>dp</code> unit.
  *
  * @author      stkim1
- * @version     %I%, %G%
+ * @version     $I$, $G$
  * @since       0.1
  */
 public class MTPoint {
@@ -73,9 +73,10 @@ public class MTPoint {
 
     /**
      * Returns a <code>MTPoint</code> object to (x, y).
-     * The coordinate argument must be a <code>List<Double></code> array in the size of two (2).
+     * The coordinate argument must be a <code>List{@literal <}{@link Double}{@literal >}</code>
+     * array in the size of two (2).
      *
-     * @param  point a coordinate of (x, y) pair in <code>List<{@link Double}></code>.
+     * @param  point a coordinate of (x, y) pair in <code>List{@literal <}{@link Double}{@literal >}</code>
      * @throws IllegalArgumentException if the argument is <code>null</code>.
      * @throws InvalidParameterException If the argument list size is not <code>two (2)</code>.
      */
