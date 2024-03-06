@@ -26,7 +26,7 @@ Extremely useful for handling touches on, for example, Europe map, or an eye of 
 - Place it in `libs` folder  
 ![screenshot](https://raw.githubusercontent.com/stkim1/view.MTImageMapView/main/doc/lib_install.png)
 - edit `build.gradle.kts`  
-```
+```kotlin
 dependencies {
     ...
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.aar", "*.jar"))))
