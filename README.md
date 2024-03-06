@@ -22,7 +22,7 @@ Extremely useful for handling touches on, for example, Europe map, or an eye of 
 - From Android API 24  
 
 ## Library Setup  
-- Download [`MTImageMapView-0.1.aar`](https://raw.githubusercontent.com/stkim1/view.MTImageMapView/main/dist/MTImageMapView-0.1.aar)  
+- Download [`MTImageMapView-0.1-rc3.aar`](https://raw.githubusercontent.com/stkim1/view.MTImageMapView/main/dist/MTImageMapView-0.1-rc3.aar)  
 - Place it in `libs` folder  
 ![screenshot](https://raw.githubusercontent.com/stkim1/view.MTImageMapView/main/doc/lib_install.png)
 - edit `build.gradle.kts`  
@@ -99,7 +99,7 @@ val mapView : MTImageMapView = findViewById(R.id.imageMapView)
 
 ### Example App  
 
-- [MTImageMapView Example](https://github.com/stkim1/MTImageMapViewExample)
+- [MTImageMapView Example](https://github.com/stkim1/MTImageMapViewExample)  
 
 ### Limits & Cautions 
 
