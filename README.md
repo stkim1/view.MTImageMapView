@@ -144,5 +144,5 @@ Return  : wn = the winding number (=0 only when the point is outside)
 
 ## Version
 
-_VER_ : 0.1  
+_VER_ : 0.1-rc3  
 _UPDATED_ : Mar. 6, 2024
