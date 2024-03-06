@@ -248,11 +248,11 @@ public class MTImageMapView extends AppCompatImageView
     }
 
     /**
-     * Set A list of <code>MTPolygon</code>. Everytime you pass a <code>List<{@link MTPolygon}></code>,
+     * Set A list of <code>MTPolygon</code>. Everytime you pass a <code>List{@literal <}{@link MTPolygon}{@literal >}</code>,
      * the existing list will be wiped clean, and the new list is set to be used.
      *
-     * @param pList to set a <code>List<{@link MTPolygon}></code> of for the image of this view.
-     *      <code>null</code> if you want to empty the list.
+     * @param pList Pass a <code>List{@literal <}{@link MTPolygon}{@literal >}</code> of polygon maps
+     *      for the image of this view. Send <code>null</code> if you want to empty the list.
      */
     public void setPolygons(List<MTPolygon> pList) {
         this.polygons.clear();

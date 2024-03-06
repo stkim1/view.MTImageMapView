@@ -92,6 +92,10 @@ val mapView : MTImageMapView = findViewById(R.id.imageMapView)
     mapView.setPolygons(mapList)
 ```  
 
+### Javadoc  
+
+- [v0.1-rc3 Javadoc](doc/index.html)
+
 ### Sample Image and Maps  
 
 - A [US states image](https://github.com/stkim1/view.MTImageMapView/blob/main/sample/US_States.gif) in size of 600 x 383 px.  
