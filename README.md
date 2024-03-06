@@ -69,6 +69,7 @@ dependencies {
 4. For the `id` field, you can use good-old string, object, or totally eliminate it if you want to. You can mix up with other fields such as `description`.  
 5. Nonetheless, the __`vertices`__ field has to be there, and it should maintain coordinates in the aforementioned array format in #2. The field and format will be enforced in the future versions.  
 6. Instantiate `MTImageMapView` and implement `MTImageMapTouch` interface. Then pass the map to the instance of `MTImageMapView`.  
+7. In [the example app](https://github.com/stkim1/MTImageMapViewExample/blob/main/app/src/main/java/stkim1/view/examples/mtimagemapview/PolygonAdapter.kt), Square [moshi](https://github.com/square/moshi) is used for JSON decoding, but you can use whatever JSON decoder of your choice such as [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization) as long as `List<MTPolygon>` is produced.  
 ```kotlin
 val jsonMaps = assets.open("us_states.json")
                 .bufferedReader()
