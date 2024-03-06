@@ -6,7 +6,7 @@ Extremely useful for handling touches on, for example, Europe map, or an eye of 
 
 ## Screen Shots  
 
-![screenshot](https://raw.githubusercontent.com/stkim1/view.MTImageMapView/main/sample/screenshot.jpg)
+![screenshot](https://raw.githubusercontent.com/stkim1/view.MTImageMapView/main/doc/screenshot.jpg)
 
 ## Features  
 
@@ -22,13 +22,24 @@ Extremely useful for handling touches on, for example, Europe map, or an eye of 
 - From Android API 24  
 
 ## Library Setup  
-
-- build.gradle.kts
+- Download [`MTImageMapView-0.1-rc3.aar`](https://raw.githubusercontent.com/stkim1/view.MTImageMapView/main/dist/MTImageMapView-0.1-rc3.aar)  
+- Place it in `libs` folder  
+![screenshot](https://raw.githubusercontent.com/stkim1/view.MTImageMapView/main/doc/lib_install.png)
+- edit `build.gradle.kts`  
 ```
 dependencies {
-   implementation("io.github.stkim1:view-mtimagemapview:0.1")
+    ...
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.aar", "*.jar"))))
 }
 ```
+- or `build.gradle`  
+```groovy
+dependencies {
+    ...
+    implementation(fileTree(dir: 'libs', include: ['.aar', '.jar']))
+}
+```
+
 
 ## Implementation with JSON  
 1. Use tools like [Gimp](http://www.gimp.org/) and generate a image map.  
@@ -88,7 +99,7 @@ val mapView : MTImageMapView = findViewById(R.id.imageMapView)
 
 ### Example App  
 
-- [MTImageMapView Example](https://github.com/stkim1/MTImageMapViewExample)
+- [MTImageMapView Example](https://github.com/stkim1/MTImageMapViewExample)  
 
 ### Limits & Cautions 
 
